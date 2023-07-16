@@ -41,9 +41,17 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
     .then((responses) => {
+        const text = res.text;
+        const textColor = res.textcolor;
+        const shape = res.shape;
+        const shapeColor= res.shapecolor;
+
+        generateSVG(text, textColor, shape, shapeColor);
         console.log('Create your logo!');
         writeToFile('new.svg', ({ ...responses}));
-    })
+    }).catch((err) => console.info(err));
     }
+
+    
 
     init();
