@@ -1,3 +1,49 @@
-const shape = new Triangle();
-shape.setColor("blue");
-expect(shape.render()).toEqual('<polygon points="150, 18 244, 182 56, 182" fill="blue" />');
+const inquirer = require('inquirer');
+const fs = require('fs');
+const path = require('path');
+const {triangle, square, circle} = require('./lib/shapes');
+
+
+const questions = [
+    {
+        type: 'input',
+        name: 'title',
+        message: 'Please enter up to 3 characters'
+    },
+    {
+        type: 'input',
+        name: 'title',
+        message: 'Please enter a color or hexadecimal number'
+    },
+    {
+        type: 'input',
+        name: 'title',
+        message: 'please choose a shape',
+        choices: [
+            'circle',
+            'triangle',
+            'square'
+        ]
+    },
+    {
+        type: 'input',
+        name: 'title',
+        message: 'Enter a shape color or a hexadecimal number'
+    },
+   
+];
+
+function writeToFile(fileName, data) {
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+}
+
+
+function init() {
+    inquirer.prompt(questions)
+    .then((responses) => {
+        console.log('Create your logo!');
+        writeToFile('new.svg', ({ ...responses}));
+    })
+    }
+
+    init();
