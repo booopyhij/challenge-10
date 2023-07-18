@@ -95,9 +95,16 @@ if (shape === 'Circle') {
     }
 
 
-    function writeToFile(fileName, res) {
-        return fs.writeFileSync(path.join(process.cwd(), fileName), res);
+// return writeFile(
+//           join(__dirname, '..', 'output', 'tasks.html'),
+//           createDocument(this.title, this.tasks)
+    function writeToFile(fileName, data) {
+        return fs.writeFileSync(path.join(process.cwd(), __dirname, 'examples', fileName), data);
     }
+
+    // // function writeToFile(fileName, res) {
+    // //     return fs.writeFile(path.join(fileName, './examples'), res);
+    // // }
 
 // calling the initializing function
 init();
