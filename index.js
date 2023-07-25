@@ -7,6 +7,14 @@ const { Triangle, Circle, Square } = require('./lib/shapes');
 const CLI = require('./lib/cli');
 const svg = require('./lib/svg');
 
+
+const cli = new CLI();
+
+cli.run();
+
+
+
+// this was my original attempt, keeping for reference if needed
 //This array houses all my questions used within inquirer
 // const questions = [
 //     {
@@ -112,6 +120,3 @@ const svg = require('./lib/svg');
 // init();
 
 
-const cli = new CLI();
-
-cli.run();
